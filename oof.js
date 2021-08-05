@@ -11,7 +11,7 @@ class OofJS {
         document.body.appendChild(this.canvas)
     }
     clear() {
-        this.canvas.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.pen.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
     #iterate(list, func) {
         for (var i = 0; i <= list.length - 1; i++) {
