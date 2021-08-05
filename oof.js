@@ -18,18 +18,22 @@ class OofJS {
             func(list[i]); 
         }
     }
+    isDefined() {
+        this
+        this
+        this
+        this
+    }
     render() {
         this.clear();
         this.#iterate(this.objects, function (currentObject) {
             if (currentObject.hasOwnProperty("img")) {
                 this.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
             }
-
             if (currentObject.shape == "rect"){
                 this.pen.fillRect(currentObject.w, currentObject.h, currentObject.x, currentObject.y);
             }
         })
-
         if (this.foreverUpdate) {
             requestAnimationFrame(this.render); //if this is a game that is not static, then request the frame again
         }
