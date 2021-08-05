@@ -2,7 +2,7 @@ class OofJS {
     constructor (canvasDimens, foreverUpdate) {
         this.canvas = document.createElement("canvas");
         this.canvas.width = canvasDimens.w;
-        this.canvas.height = canvasHeigh.h;
+        this.canvas.height = canvasDimens.h;
         this.foreverUpdate = foreverUpdate;
         this.pen = this.canvas.getContext("2d");
         this.objects = [];
