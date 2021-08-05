@@ -18,12 +18,6 @@ class OofJS {
             func(list[i]); 
         }
     }
-    isDefined() {
-        this
-        this
-        this
-        this
-    }
     render() {
         this.clear();
         this.#iterate(this.objects, function (currentObject) {
