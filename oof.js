@@ -1,5 +1,56 @@
 class OofJS {
-    constructor () {
+    constructor (canvasDimens, foreverUpdate) {
+        this.canvas = document.createElement("canvas");
+        this.canvas.width = canvasDimens.w;
+        this.canvas.height = canvasHeigh.h;
+        this.foreverUpdate = foreverUpdate;
         
+        this.pen = this.canvas.getContext("2d");
+        this.objects = [];
+    }
+    clear() {
+        this.canvas.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+    #iterate(list, func) {
+        for (var i = 0; i <= list.length - 1; i++) {
+            func(list[i]);
+        }
+    }
+    render() {
+        this.clear()
+        this.#iterate(this.objects, function (currentObject) {
+            if (currentObject.hasOwnProperty("img")) {
+                this.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y)
+            }
+
+            if (currentObject.shape == "rect"){
+                this.pen.fillRect(currentObject.w, currentObject.h, currentObject.x, currentObject.y);
+            }
+        })
+        if (this.foreverUpdate) {
+            requestAnimationFrame(this.render);
+        }
+    }
+    addObject(x, y, w, h, isImg = false, imgSource = "") {
+        if (!isImg) {
+            this.objects.push({
+                x: x,
+                y: y,
+                w: w,
+                h: h
+            })
+        } else {
+            let img = document.createElement("img");
+            img.src = imgSource;
+            img.width = w;
+            img.height = h;
+
+            this.objects.push({
+                x: x,
+                y: y,
+                img: true,
+                imgElement: img
+            })
+        }
     }
 }
