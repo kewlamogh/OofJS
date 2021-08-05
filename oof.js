@@ -19,7 +19,7 @@ class OofJS {
         }
     }
     render() {
-        this.clear()
+        this.clear();
         this.#iterate(this.objects, function (currentObject) {
             if (currentObject.hasOwnProperty("img")) {
                 this.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y)
