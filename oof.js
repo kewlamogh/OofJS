@@ -8,7 +8,7 @@ class OofJS {
         this.objects = [];
     }
     inject() {
-        document.body.appendChild(this.canvas)
+        document.body.appendChild(this.canvas);
     }
     clear() {
         this.pen.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -22,7 +22,7 @@ class OofJS {
         this.clear();
         this.#iterate(this.objects, function (currentObject) {
             if (currentObject.hasOwnProperty("img")) {
-                this.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y)
+                this.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
             }
 
             if (currentObject.shape == "rect"){
