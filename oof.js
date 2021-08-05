@@ -19,6 +19,8 @@ class OofJS {
         }
     }
     render() {
+        console.log(this)
+        return;
         this.clear();
         this.#iterate(this.objects, function (currentObject) {
             if (currentObject.hasOwnProperty("img")) {
