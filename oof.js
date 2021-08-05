@@ -1,21 +1,21 @@
 class OofJS {
-    constructor (canvasDimens, foreverUpdate) {
+    constructor (canvasDimens, foreverUpdate) { 
         this.canvas = document.createElement("canvas");
         this.canvas.width = canvasDimens.w;
         this.canvas.height = canvasDimens.h;
         this.foreverUpdate = foreverUpdate;
         this.pen = this.canvas.getContext("2d");
-        this.objects = [];
+        this.objects = []; //objects to draw
     }
     inject() {
-        document.body.appendChild(this.canvas);
+        document.body.appendChild(this.canvas); //injecting canvas
     }
     clear() {
-        this.pen.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.pen.clearRect(0, 0, this.canvas.width, this.canvas.height); //clearing
     }
-    #iterate(list, func) {
+    #iterate(list, func) { //creating a function that makes iterating through lists a breeze
         for (var i = 0; i <= list.length - 1; i++) {
-            func(list[i]);
+            func(list[i]); 
         }
     }
     render() {
@@ -29,8 +29,9 @@ class OofJS {
                 this.pen.fillRect(currentObject.w, currentObject.h, currentObject.x, currentObject.y);
             }
         })
+
         if (this.foreverUpdate) {
-            requestAnimationFrame(this.render);
+            requestAnimationFrame(this.render); //if this is a game that is not static, then request the frame again
         }
     }
     addObject(x, y, w, h, isImg = false, imgSource = "") {
