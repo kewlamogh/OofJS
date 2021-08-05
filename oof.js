@@ -10,7 +10,7 @@ class OofJS {
     inject() {
         document.body.appendChild(this.canvas); //injecting canvas
     }
-    clear() {
+    eraseAll() {
         this.pen.clearRect(0, 0, this.canvas.width, this.canvas.height); //clearing
     }
     #iterate(list, func) { //creating a function that makes iterating through lists a breeze
@@ -19,8 +19,7 @@ class OofJS {
         }
     }
     render() {
-        console.log(this)
-        this.clear();
+        this.eraseAll();
         this.#iterate(this.objects, function (currentObject) {
             if (currentObject.hasOwnProperty("img")) {
                 this.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
