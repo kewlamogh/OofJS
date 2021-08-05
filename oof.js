@@ -4,9 +4,11 @@ class OofJS {
         this.canvas.width = canvasDimens.w;
         this.canvas.height = canvasHeigh.h;
         this.foreverUpdate = foreverUpdate;
-        
         this.pen = this.canvas.getContext("2d");
         this.objects = [];
+    }
+    inject() {
+        document.body.appendChild(this.canvas)
     }
     clear() {
         this.canvas.clearRect(0, 0, this.canvas.width, this.canvas.height);
