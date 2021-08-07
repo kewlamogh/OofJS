@@ -7,7 +7,8 @@ class OofJS {
     this.pen = this.canvas.getContext("2d");
     this.objects = []; //objects to draw
     this.keysPressed = {};
-    
+    this.render();
+
     let k = {}
     document.onkeydown = function (e) {k[e.key] = true};
     document.onkeyup = function (e) {delete k[e.key]};
@@ -89,7 +90,7 @@ class OofJS {
   }
   draw(inst) {
     inst.eraseAll();
-    inst.#iterate(inst.objects, function (currentObject) {
+    inst.#iterate(inst.objects, (currentObject) => {
       if (currentObject.hasOwnProperty("img")) {
         inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
       }
@@ -102,10 +103,10 @@ class OofJS {
   }
   callback(inst) {
     if (inst.foreverUpdate) {
-      requestAnimationFrame(function () {inst.draw(inst)}); 
+      requestAnimationFrame(() => {inst.draw(inst)}); 
     }
   }
   onclick(func) {
-    this.canvas.addEventListener("click", function (e) {func(e)})
+    this.canvas.addEventListener("click", (e) => {func(e)})
   }
 }
