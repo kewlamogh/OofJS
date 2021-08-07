@@ -7,7 +7,8 @@ class OofJS {
     this.pen = this.canvas.getContext("2d");
     this.objects = []; //objects to draw
     this.keysPressed = {};
-    let k = []
+    
+    let k = {}
     document.onkeydown = function (e) {k[e.key] = true};
     document.onkeyup = function (e) {delete k[e.key]};
     this.keysPressed = k;
