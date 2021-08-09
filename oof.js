@@ -93,6 +93,7 @@ class OofJS {
     inst.#iterate(inst.objects, (currentObject) => {
       if (currentObject.hasOwnProperty("isImg") && currentObject.isImg) {
         inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
+        console.log()
       }
       if (currentObject.shape == "rect") {
         inst.pen.fillStyle = currentObject.col;
