@@ -8,10 +8,10 @@ class OofJS {
     this.objects = []; //objects to draw
     this.keysPressed = {};
     this.render();
-
+    //setting keyDict
     let k = {}
-    document.onkeydown = function (e) {k[e.key] = true};
-    document.onkeyup = function (e) {delete k[e.key]};
+    document.onkeydown = function (e) { k[e.key] = true };
+    document.onkeyup = function (e) { delete k[e.key] };
     this.keysPressed = k;
   }
   setStyleForCanvas(styling) {
@@ -24,7 +24,7 @@ class OofJS {
   }
   setAttr(name, p, nv) {
     let selectedIndex;
-    for (var i = 0; i<=this.objects.length - 1;i ++) {
+    for (var i = 0; i <= this.objects.length - 1; i++) {
       if (this.objects[i].name == name) {
         selectedIndex = i;
       }
@@ -37,7 +37,7 @@ class OofJS {
   }
   getAttr(name, p) {
     let selectedIndex;
-    for (var i = 0; i<=this.objects.length - 1;i ++) {
+    for (var i = 0; i <= this.objects.length - 1; i++) {
       if (this.objects[i].name == name) {
         selectedIndex = i;
       }
@@ -60,7 +60,7 @@ class OofJS {
     }
   }
   addObject(x, y, w, h, name, color = "black", isImg = false, imgSource = "") {
-    if (isImg == false) {
+    if (!isImg) {
       this.objects.push({
         x: x, //usual dimens
         y: y,
@@ -79,7 +79,7 @@ class OofJS {
         x: x,//x
         y: y,//y
         isImg: true,//img
-        imgElement: image, 
+        imgElement: image,
         shape: undefined,
         name: name
       });
@@ -93,7 +93,6 @@ class OofJS {
     inst.#iterate(inst.objects, (currentObject) => {
       if (currentObject.hasOwnProperty("isImg") && currentObject.isImg) {
         inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
-        console.log("<I HAVE DRAWN THE IMAGE>")
       }
       if (currentObject.shape == "rect") {
         inst.pen.fillStyle = currentObject.col;
@@ -104,10 +103,10 @@ class OofJS {
   }
   callback(inst) {
     if (inst.foreverUpdate) {
-      requestAnimationFrame(() => {inst.render()}); 
+      requestAnimationFrame(() => { inst.render() });
     }
   }
   onclick(func) {
-    this.canvas.addEventListener("click", (e) => {func(e)})
+    this.canvas.addEventListener("click", (e) => { func(e) })
   }
 }
