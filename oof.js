@@ -88,7 +88,7 @@ class OofJS {
   render() {
     this.draw(this);
   }
-  //this is a test
+  //this is a t
   draw(inst) {
     inst.eraseAll();
     inst.#iterate(inst.objects, (currentObject) => {
