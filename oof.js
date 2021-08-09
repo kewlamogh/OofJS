@@ -77,7 +77,6 @@ class OofJS {
       image.height = h;
       this.objects.push({
         x: x,//x
-        
         y: y,//y
         isImg: true,//img
         imgElement: image, 
@@ -94,6 +93,7 @@ class OofJS {
     inst.#iterate(inst.objects, (currentObject) => {
       if (currentObject.hasOwnProperty("isImg") && currentObject.isImg) {
         inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
+        console.log("<I HAVE DRAWN THE IMAGE>")
       }
       if (currentObject.shape == "rect") {
         inst.pen.fillStyle = currentObject.col;
