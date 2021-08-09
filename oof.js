@@ -91,7 +91,7 @@ class OofJS {
   draw(inst) {
     inst.eraseAll();
     inst.#iterate(inst.objects, (currentObject) => {
-      if (currentObject.hasOwnProperty("img")) {
+      if (currentObject.hasOwnProperty("img") && currentObject.img) {
         inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
       }
       if (currentObject.shape == "rect") {
