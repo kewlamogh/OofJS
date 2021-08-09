@@ -77,8 +77,9 @@ class OofJS {
       image.height = h;
       this.objects.push({
         x: x,//x
+        
         y: y,//y
-        img: true,//img
+        isImg: true,//img
         imgElement: image, 
         shape: undefined,
         name: name
