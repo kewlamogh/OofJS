@@ -62,27 +62,27 @@ class OofJS {
   addObject(x, y, w, h, name, color = "black", isImg = false, imgSource = "") {
     if (isImg == false) {
       this.objects.push({
-        x: x,
+        x: x, //usual dimens
         y: y,
         w: w,
         h: h,
-        shape: 'rect',
+        shape: 'rect', //shape-specific
         name: name,
-        col: color
-      })
+        col: color //shape-specific
+      });
     } else if (isImg) {
-      let img = document.createElement("img");
-      img.src = imgSource;
-      img.width = w;
-      img.height = h;
+      let image = document.createElement("img"); //not getElement
+      image.src = imgSource;
+      image.width = w; //setting w and h
+      image.height = h;
       this.objects.push({
-        x: x,
-        y: y,
-        img: true,
-        imgElement: img,
+        x: x,//x
+        y: y,//y
+        img: true,//img
+        imgElement: image, 
         shape: undefined,
         name: name
-      })
+      });
     }
   }
   render() {
