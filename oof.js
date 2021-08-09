@@ -92,7 +92,8 @@ class OofJS {
     inst.eraseAll();
     inst.#iterate(inst.objects, (currentObject) => {
       if (currentObject.hasOwnProperty("isImg") && currentObject.isImg) {
-        inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
+        inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y); //ik that this if executes when necessary
+        //TODO: #2 fix the image-not-rendering bug
       }
       if (currentObject.shape == "rect") {
         inst.pen.fillStyle = currentObject.col;
