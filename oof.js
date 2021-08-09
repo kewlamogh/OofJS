@@ -86,7 +86,7 @@ class OofJS {
     }
   }
   render() {
-    this.draw(this);
+    this.draw(this); //pass in `this`
   }
   draw(inst) {
     inst.eraseAll();
