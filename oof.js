@@ -103,7 +103,7 @@ class OofJS {
   }
   callback(inst) {
     if (inst.foreverUpdate) {
-      requestAnimationFrame(() => {inst.draw(inst)}); 
+      requestAnimationFrame(() => {inst.render()}); 
     }
   }
   onclick(func) {
