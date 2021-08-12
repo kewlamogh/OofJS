@@ -42,11 +42,7 @@ class OofJS {
         selectedIndex = i;
       }
     }
-    if (selectedIndex == undefined) {
-      return null;
-    } else {
-      return this.objects[selectedIndex][p]
-    }
+    return (selectedIndex == undefined ? null : this.objects[selectedIndex][p])
   }
   inject() {
     document.body.appendChild(this.canvas); //injecting canvas
@@ -73,6 +69,7 @@ class OofJS {
     } else if (isImg) {
       let image = document.createElement("img"); //not getElement
       image.src = imgSource;
+      //TODO: #4 Allow setting img w and h
       image.width = w; //setting w and h
       image.height = h;
       this.objects.push({
@@ -90,11 +87,10 @@ class OofJS {
   }
   draw(inst) {
     inst.eraseAll();
-    inst.#iterate(inst.objects, (currentObject) => {
-      if (currentObject.hasOwnProperty("isImg") && currentObject.isImg) {
-        inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y); //ik that this if executes when necessary
-        console.log(currentObject.x.toString() + '|' + currentObject.y.toString())
-        //TODO: #2 fix the image-not-rendering bug
+    inst.#iterate(inst.objects, currentObject => {
+      if (currentObject.isImg) {
+        inst.pen.drawImage(currentObject.imgElement, currentObject.x, currentObject.y);
+        console.log(currentObject.x.toString() + '|' + currentObject.y.toString());
       }
       if (currentObject.shape == "rect") {
         inst.pen.fillStyle = currentObject.col;
