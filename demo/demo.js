@@ -11,7 +11,7 @@ async function main() {
         oof.setAttr("lol", "x", 20);
     } //if a is pressed set square_dude's x to 50 and lol's x to 20
     if (oof.isPressed("z")) {
-        alert("hallo")
+        alert("hallo");
     } 
     if (oof.isPressed("q")) {
         alert("you pressed a wrong key.")
